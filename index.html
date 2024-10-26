@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تجربة الضغط</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #1a1a1a; /* لون الخلفية الأسود */
+            color: #ffffff; /* لون النص الأبيض */
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #1E90FF; /* لون أزرق */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px; /* تكبير النص */
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: transform 0.3s; /* أنميشن */
+        }
+
+        .circle:hover {
+            transform: scale(1.1); /* تكبير عند التمرير */
+        }
+
+        #counter {
+            font-size: 50px; /* تكبير الرقم */
+            color: #4CAF50; /* لون الرقم أخضر */
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeIn 0.5s ease; /* أنميشن للظهور */
+        }
+
+        #barcelonaImage {
+            display: none;
+            width: 250px; /* تكبير الصورة */
+            margin-top: 20px;
+            animation: fadeIn 1s ease; /* أنميشن للظهور */
+        }
+
+        /* تأثيرات الأنميشن */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="barcelonaImage" src="https://a.top4top.io/p_32214tkua1.png" alt="شعار برشلونة">
+    <div class="circle" id="clickButton" onclick="handleClick()">اضغط هنا</div>
+    <p id="counter">اضغط 4 مرات</p>
+
+    <script>
+        let clickCount = 0;
+
+        function handleClick() {
+            clickCount++;
+            if (clickCount === 4) {
+                document.getElementById("counter").textContent = "4 - 0";
+                document.getElementById("barcelonaImage").style.display = "block";
+                document.getElementById("clickButton").style.display = "none"; // إخفاء الزر
+                clickCount = 0; // إعادة تعيين العداد بعد الوصول إلى 4
+            } else {
+                document.getElementById("counter").textContent = `اضغط ${4 - clickCount} مرات`;
+            }
+        }
+    </script>
+
+</body>
+</html>
