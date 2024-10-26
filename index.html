@@ -45,10 +45,17 @@
             animation: fadeIn 0.5s ease; /* أنميشن للظهور */
         }
 
+        #barcelonaVideo {
+            display: none;
+            width: 250px; /* تكبير الفيديو */
+            margin-top: 20px;
+            animation: fadeIn 1s ease; /* أنميشن للظهور */
+        }
+
         #barcelonaImage {
             display: none;
-            width: 250px; /* تكبير الصورة */
-            margin-top: 20px;
+            width: 80px; /* حجم صغير للشعار */
+            margin-top: 10px;
             animation: fadeIn 1s ease; /* أنميشن للظهور */
         }
 
@@ -61,6 +68,10 @@
 </head>
 <body>
 
+    <video id="barcelonaVideo" controls>
+        <source src="https://j.top4top.io/m_32210kym71.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+    </video>
     <img id="barcelonaImage" src="https://i.ibb.co/WD4mshm/Screenshot.png" alt="شعار برشلونة">
     <div class="circle" id="clickButton" onclick="handleClick()">اضغط هنا</div>
     <p id="counter">اضغط 4 مرات</p>
@@ -72,7 +83,8 @@
             clickCount++;
             if (clickCount === 4) {
                 document.getElementById("counter").textContent = "4 - 0";
-                document.getElementById("barcelonaImage").style.display = "block";
+                document.getElementById("barcelonaVideo").style.display = "block";
+                document.getElementById("barcelonaImage").style.display = "block"; // عرض الشعار تحت الفيديو
                 document.getElementById("clickButton").style.display = "none"; // إخفاء الزر
                 clickCount = 0; // إعادة تعيين العداد بعد الوصول إلى 4
             } else {
